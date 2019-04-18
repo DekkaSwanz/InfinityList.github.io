@@ -1,0 +1,32 @@
+{
+  "name": "alexandrathaprettygood.github.io",
+  "version": "1.0.0",
+  "description": "Derrick and Alex's Infinite To-do List",
+  "main": "server.js",
+  "scripts": {
+   "client-install":"npm install --prefix client",
+   "start": "node server.js",
+   "server":"nodemon server.js",
+   "client": "npm start --prefix client",
+   "dev":" concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DekkaSwanz/AlexandraThaPrettyGood.github.io.git"
+  },
+  "author": "Derrick H. Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DekkaSwanz/AlexandraThaPrettyGood.github.io/issues"
+  },
+  "homepage": "https://github.com/DekkaSwanz/AlexandraThaPrettyGood.github.io#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
