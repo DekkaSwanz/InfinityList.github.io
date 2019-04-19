@@ -7,6 +7,13 @@ const items = require('./routes/api/items')
 
 const app = express();
 
+// cross domain workaround
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 // Bodyparser middleware
 app.use(bodyParser.json());
 
