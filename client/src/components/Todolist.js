@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, ListGroup, ListGroupItem, ListGroupItemText, Button, Form, FormGroup, Label, Input, FormText, } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import uuid from 'uuid';
+import { Container, Row, Col, ListGroup, ListGroupItem, ListGroupItemText, Button, Form, FormGroup,Input} from 'reactstrap';
 import axios from 'axios';
-const labelStyle = {
-    fontSize: '2rem',
-    fontFamily:"'Dokdo', cursive"
-}
+
 const thingStyle = {
     fontSize: '2.5rem',
     fontFamily:"'Permanent Marker', cursive",
@@ -32,8 +27,8 @@ class Todolist extends Component {
             // res.data.forEach(element => {
             //     element["id"] = uuid()
             // });
-            const completedItems = res.data.filter(item => item.completed == true)
-            const items = res.data.filter(item => item.completed == false)
+            const completedItems = res.data.filter(item => item.completed === true)
+            const items = res.data.filter(item => item.completed === false)
             console.log('not completed', items)
             console.log('completed', completedItems)
             this.setState({
@@ -137,9 +132,6 @@ class Todolist extends Component {
                                     <ListGroupItemText><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
                                     <ListGroupItemText><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
                                     <Button
-                                        className='remove-btn'
-                                        color='danger'
-                                        size='md'
                                         className='remove-btn'
                                         color='danger'
                                         size='md'
