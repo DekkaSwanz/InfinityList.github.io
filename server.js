@@ -8,7 +8,6 @@ const cors = require('cors');
 const app = express();
 
 //cross domain workaround
-app.use(cors())
 
 // Bodyparser middleware
 app.use(bodyParser.json());
