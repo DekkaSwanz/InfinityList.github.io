@@ -4,14 +4,21 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import uuid from 'uuid';
 import axios from 'axios';
 const labelStyle = {
-    fontSize: '2rem'
+    fontSize: '2rem',
+    fontFamily:"'Dokdo', cursive"
 }
 const thingStyle = {
-    fontSize: '2.5rem'
+    fontSize: '2.5rem',
+    fontFamily:"'Permanent Marker', cursive",
+    borderBottom:"solid black .2rem"
 }
 const colStyle = {
     flex: 'none',
     maxWidth: 'none'
+}
+const smallStyle ={
+    fontSize:"1.5rem",
+    fontFamily:"'Indie Flower', cursive"
 }
 class Todolist extends Component {
     state = {
@@ -63,17 +70,17 @@ class Todolist extends Component {
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
-                            <Input type="text" name="what" id="whatInput" placeholder="What should we do?" />
+                            <Input style={smallStyle} type="text" name="what" id="whatInput" placeholder="What should we do?" />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
-                            <Input type="text" name="where" id="whereInput" placeholder="Where should we do it?" />
+                            <Input style={smallStyle} type="text" name="where" id="whereInput" placeholder="Where should we do it?" />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
-                            <Input type="text" name="when" id="whenInput" placeholder="When should we do it?" />
+                            <Input style={smallStyle} type="text" name="when" id="whenInput" placeholder="When should we do it?" />
                         </Col>
                     </FormGroup>
                     <FormGroup className='text-center' check row>
