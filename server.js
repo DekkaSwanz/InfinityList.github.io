@@ -3,20 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path')
 const items = require('./routes/api/items')
-
+const cors = require('cors');
 
 const app = express();
 
-// cross domain workaround
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    if(req.method === 'OPTIONS'){
-        res.header('Access-Control-Allow-Methods', 'PUT','POST','PATCH','DELETE','GET');
-        return res.status(200).json({});
-    }
-    next();
-  });
+//cross domain workaround
+app.use(cors())
 
 // Bodyparser middleware
 app.use(bodyParser.json());
