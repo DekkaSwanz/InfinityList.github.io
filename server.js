@@ -21,6 +21,12 @@ mongoose
     .catch(err => console.log(err));
 
 const port = process.env.PORT;
+
+// Use Routes 
+app.use('/api/items',items)
+app.get('https://yummyhorchata.herokuapp.com/api/items/test',(req,res) => {
+res.send({hello:"lovely"})
+})
 // serve static assets in production
 if(process.env.NODE_ENV === 'production'){
     console.log('in production')
@@ -29,9 +35,6 @@ if(process.env.NODE_ENV === 'production'){
     app.get('*',(req,res) => {
         res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     })
-}else{
-    console.log('in development')
 }
-// Use Routes 
-app.use('/api/items',items)
+
 app.listen(port, () => console.log('server started on port ' + port));
