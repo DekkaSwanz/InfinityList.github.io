@@ -21,7 +21,7 @@ class Todolist extends Component {
         completedItems: []
     }
     componentDidMount() {
-        axios.get('/').then(res => {
+        axios.get('/api/items').then(res => {
             console.log(res.data)
             console.log("length", res.data.length)
             // res.data.forEach(element => {
