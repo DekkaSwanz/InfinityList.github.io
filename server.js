@@ -24,9 +24,7 @@ const port = process.env.PORT;
 
 // Use Routes 
 app.use('/api/items',items)
-app.get('https://yummyhorchata.herokuapp.com/api/items/test',(req,res) => {
-res.send({hello:"lovely"})
-})
+
 // serve static assets in production
 if(process.env.NODE_ENV === 'production'){
     console.log('in production')

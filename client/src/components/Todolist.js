@@ -50,7 +50,7 @@ class Todolist extends Component {
             when: whenVal
         }
 
-        axios.post('/', newItem)
+        axios.post('/api/items', newItem)
             .then(res => {
                 console.log(res)
             }).catch((error) => {
@@ -97,7 +97,7 @@ class Todolist extends Component {
                                         color='danger'
                                         size='md'
                                         onClick={() => {
-                                            axios.delete(`/${item._id}`).then(res => {
+                                            axios.delete(`/api/items/${item._id}`).then(res => {
 
                                                 console.log(res)
                                             }).catch(err => {
@@ -136,7 +136,7 @@ class Todolist extends Component {
                                         color='danger'
                                         size='md'
                                         onClick={() => {
-                                            axios.delete(`/${item._id}`).then(res => {
+                                            axios.delete(`/api/items/${item._id}`).then(res => {
                                                 console.log(res)
                                             }).catch(err => {
                                                 console.log(err)
