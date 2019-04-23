@@ -158,8 +158,8 @@ class Todolist extends Component {
 
                                         }}
                                     >Delete
-                           </Button>
-                                </ListGroupItem>
+                                </Button>
+                            </ListGroupItem>
                             ))}
                         </ListGroup>
                     </Col>
