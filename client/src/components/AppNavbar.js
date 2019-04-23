@@ -3,8 +3,10 @@ import {Container } from 'reactstrap';
 const headStyle = {
     fontFamily:"'Permanent Marker', cursive",
     border: "solid black",
-    borderRadius: "25px"
+    borderRadius: "25px",
+    marginBottom:"0rem"
 }
+
 const Header = (props) => {
   return (
     <div>

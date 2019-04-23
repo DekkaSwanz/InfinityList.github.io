@@ -15,6 +15,16 @@ const smallStyle ={
     fontSize:"1.5rem",
     fontFamily:"'Indie Flower', cursive"
 }
+const itemStyle ={
+    fontSize:"1.25rem",
+    fontFamily:"'Indie Flower', cursive",
+}
+const containerStyle = {
+   
+}
+const formStyle = {
+    padding:"2rem"
+}
 class Todolist extends Component {
     state = {
         items: [],
@@ -61,8 +71,8 @@ class Todolist extends Component {
     render() {
         const { items } = this.state;
         return (
-            <Container>
-                <Form onSubmit={this.handleSubmit}>
+            <Container style={containerStyle}>
+                <Form style={formStyle} onSubmit={this.handleSubmit}>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
                             <Input style={smallStyle} type="text" name="what" id="whatInput" placeholder="What should we do?" />
@@ -89,9 +99,9 @@ class Todolist extends Component {
                         <ListGroup>
                             {items.map((item, id) => (
                                 <ListGroupItem  >
-                                    <ListGroupItemText><span><strong>What: </strong></span>{item.what}</ListGroupItemText><br></br>
-                                    <ListGroupItemText><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
-                                    <ListGroupItemText><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle} ><span><strong>What: </strong></span >{item.what}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
                                     <Button
                                         className='remove-btn'
                                         color='danger'
@@ -114,8 +124,9 @@ class Todolist extends Component {
                                         color='success'
                                         size='md'
                                         onClick={() => {
-                                           axios.put(`/${item._id}`).then(res =>{
+                                           axios.put(`/api/items/${item._id}`).then(res =>{
                                                console.log(res)
+                                               debugger;
                                            })
                                            window.location.reload(true)
                                         }}
@@ -128,9 +139,9 @@ class Todolist extends Component {
                         <ListGroup>
                             {this.state.completedItems.map((item) => (
                                 <ListGroupItem>
-                                    <ListGroupItemText><span><strong>What: </strong></span>{item.what}</ListGroupItemText><br></br>
-                                    <ListGroupItemText><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
-                                    <ListGroupItemText><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle}><span><strong>What: </strong></span>{item.what}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
                                     <Button
                                         className='remove-btn'
                                         color='danger'
