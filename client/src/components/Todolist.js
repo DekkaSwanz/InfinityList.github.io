@@ -21,7 +21,7 @@ class Todolist extends Component {
         completedItems: []
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/items').then(res => {
+        axios.get('https://yummyhorchata.herokuapp.com/api/items').then(res => {
             console.log(res.data)
             console.log("length", res.data.length)
             // res.data.forEach(element => {
@@ -50,7 +50,7 @@ class Todolist extends Component {
             when: whenVal
         }
 
-        axios.post('http://localhost:5000/api/items', newItem)
+        axios.post('https://yummyhorchata.herokuapp.com/api/items', newItem)
             .then(res => {
                 console.log(res)
             }).catch((error) => {
@@ -97,7 +97,7 @@ class Todolist extends Component {
                                         color='danger'
                                         size='md'
                                         onClick={() => {
-                                            axios.delete(`http://localhost:5000/api/items/${item._id}`).then(res => {
+                                            axios.delete(`https://yummyhorchata.herokuapp.com/${item._id}`).then(res => {
 
                                                 console.log(res)
                                             }).catch(err => {
@@ -114,7 +114,7 @@ class Todolist extends Component {
                                         color='success'
                                         size='md'
                                         onClick={() => {
-                                           axios.put(`http://localhost:5000/api/items/${item._id}`).then(res =>{
+                                           axios.put(`https://yummyhorchata.herokuapp.com/${item._id}`).then(res =>{
                                                console.log(res)
                                            })
                                            window.location.reload(true)
@@ -136,7 +136,7 @@ class Todolist extends Component {
                                         color='danger'
                                         size='md'
                                         onClick={() => {
-                                            axios.delete(`http://localhost:5000/api/items/${item._id}`).then(res => {
+                                            axios.delete(`https://yummyhorchata.herokuapp.com/${item._id}`).then(res => {
                                                 console.log(res)
                                             }).catch(err => {
                                                 console.log(err)
