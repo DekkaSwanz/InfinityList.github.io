@@ -21,7 +21,7 @@ class Todolist extends Component {
         completedItems: []
     }
     componentDidMount() {
-        axios.get('https://yummyhorchata.herokuapp.com/api/items').then(res => {
+        axios.get('https://yummyhorchata.herokuapp.com/').then(res => {
             console.log(res.data)
             console.log("length", res.data.length)
             // res.data.forEach(element => {
@@ -50,7 +50,7 @@ class Todolist extends Component {
             when: whenVal
         }
 
-        axios.post('https://yummyhorchata.herokuapp.com/api/items', newItem)
+        axios.post('https://yummyhorchata.herokuapp.com/', newItem)
             .then(res => {
                 console.log(res)
             }).catch((error) => {
