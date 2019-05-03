@@ -48,19 +48,22 @@ const itemStyle1 ={
     fontSize:"1.25rem",
     fontFamily:"'Indie Flower', cursive",
     margin:'0',
-    wordBreak:'break-word'
+    wordBreak:'break-word',
+    color:"red"
 }
 const itemStyle2 ={
     fontSize:"1.25rem",
     fontFamily:"'Indie Flower', cursive",
     margin:'0',
-    wordBreak:'break-word'
+    wordBreak:'break-word',
+    color:"rgb(234, 234, 0)"
 }
 const itemStyle3 ={
     fontSize:"1.25rem",
     fontFamily:"'Indie Flower', cursive",
     margin:'0',
-    wordBreak:'break-word'
+    wordBreak:'break-word',
+    color:'green'
 }
 const containerStyle = {
    
