@@ -26,23 +26,29 @@ const colStyle = {
 const smallStyle1 ={
     fontSize:"1.5rem",
     fontFamily:"'Indie Flower', cursive",
-    color:"green"
+    color:"green",
+    background:'black'
 }
 const smallStyle2 ={
     fontSize:"1.5rem",
     fontFamily:"'Indie Flower', cursive",
-    color:"rgb(234, 234, 0)"
+    color:"rgb(234, 234, 0)",
+    background:'black'
+
 }
 const smallStyle3 ={
     fontSize:"1.5rem",
     fontFamily:"'Indie Flower', cursive",
-    color:"red"
+    color:"red",
+    background:'black'
+
 }
 const itemStyle ={
     fontSize:"1.25rem",
     fontFamily:"'Indie Flower', cursive",
     margin:'0',
-    wordBreak:'break-word'
+    wordBreak:'break-word',
+    color:'white'
 }
 const itemStyle1 ={
     fontSize:"1.25rem",
@@ -65,8 +71,8 @@ const itemStyle3 ={
     wordBreak:'break-word',
     color:'green'
 }
-const containerStyle = {
-   
+const doneStyle = {
+   background:'green'
 }
 const formStyle = {
     padding:"2rem"
@@ -75,8 +81,11 @@ const commentBoxStyle = {
     marginTop: "1rem"
 }
 const buttonStyle ={
-    background:"black",
-    fontFamily:"'Indie Flower', cursive"
+    background:"rgb(108, 117, 125)",
+    fontFamily:"'Indie Flower', cursive",
+    
+    borderColor: 'rgb(108, 117, 125)'
+
 
 }
 const listGroupItemTextStyle ={
@@ -180,7 +189,7 @@ class Todolist extends Component {
                            </Button>
                                     <Button
                                         className='check-btn'
-                                        color='success'
+                                        style={doneStyle}
                                         size='md'
                                         onClick={() => {
                                            axios.put(`/api/items/${item._id}`).then(res =>{

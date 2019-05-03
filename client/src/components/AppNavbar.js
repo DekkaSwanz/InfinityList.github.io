@@ -5,7 +5,8 @@ const headStyle = {
     border: "solid black",
     borderRadius: "25px",
     marginBottom:"0rem",
-    color:"red"
+    color:"red",
+    background:"black"
 }
 
 const Header = (props) => {
