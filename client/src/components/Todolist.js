@@ -72,7 +72,7 @@ const commentBoxStyle = {
     marginTop: "1rem"
 }
 const buttonStyle ={
-    color:"black",
+    background:"black",
     fontFamily:"'Indie Flower', cursive"
 
 }
