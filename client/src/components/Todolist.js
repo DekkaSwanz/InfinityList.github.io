@@ -11,13 +11,11 @@ const thingStyle1 = {
     fontSize: '2.5rem',
     fontFamily:"'Permanent Marker', cursive",
     borderBottom:"solid black .2rem",
-    color:"green"
 }
 const thingStyle2 = {
     fontSize: '2.5rem',
     fontFamily:"'Permanent Marker', cursive",
     borderBottom:"solid black .2rem",
-    color:"rgb(234, 234, 0)"
 }
 const colStyle = {
     flex: 'none',
@@ -27,21 +25,26 @@ const smallStyle1 ={
     fontSize:"1.5rem",
     fontFamily:"'Indie Flower', cursive",
     color:"green",
-    background:'black'
+    
 }
 const smallStyle2 ={
     fontSize:"1.5rem",
     fontFamily:"'Indie Flower', cursive",
     color:"rgb(234, 234, 0)",
-    background:'black'
+    
 
 }
 const smallStyle3 ={
     fontSize:"1.5rem",
     fontFamily:"'Indie Flower', cursive",
     color:"red",
-    background:'black'
-
+    
+}
+const listGroupStyle ={
+    background:"black",
+    borderTop:"red",
+    borderRight:"yellow",
+    borderBottom:"green"
 }
 const itemStyle ={
     fontSize:"1.25rem",
@@ -75,7 +78,9 @@ const doneStyle = {
    background:'green'
 }
 const formStyle = {
-    padding:"2rem"
+    padding:"2rem",
+    borderRadius: "50px",
+    background:"gainsboro"
 }
 const commentBoxStyle = {
     marginTop: "1rem"
@@ -88,6 +93,15 @@ const buttonStyle ={
 
 
 }
+const buttonStyle2 ={
+    background:"black",
+    fontSize:"1.2rem",
+    fontFamily:"'Indie Flower', cursive",
+    borderColor: 'rgb(108, 117, 125)'
+
+
+}
+
 const listGroupItemTextStyle ={
     margin:'0'
 }
@@ -137,7 +151,7 @@ class Todolist extends Component {
     render() {
         const { items } = this.state;
         return (
-            <Container style={containerStyle}>
+            <Container>
                 <Form style={formStyle} onSubmit={this.handleSubmit}>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
@@ -156,7 +170,7 @@ class Todolist extends Component {
                     </FormGroup>
                     <FormGroup className='text-center' check row>
                         <Col style={colStyle} sm={{ size: 10 }}>
-                            <Button style={buttonStyle} type="submit">Add to list!</Button>
+                            <Button style={buttonStyle2} type="submit">Add to list!</Button>
                         </Col>
                     </FormGroup>
                 </Form>
@@ -164,7 +178,7 @@ class Todolist extends Component {
                     <Col xs="6"><h4 style={thingStyle1}>Things to Do...</h4><br></br>
                         <ListGroup>
                             {items.map((item, id) => (
-                                <ListGroupItem  >
+                                <ListGroupItem style={listGroupStyle} >
                                     <ListGroupItemText style={itemStyle1} ><span><strong>What: </strong></span >{item.what}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle2}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle3}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
@@ -226,7 +240,7 @@ class Todolist extends Component {
                     <Col xs="6"><h4 className='flex-sm-nowrap' style={thingStyle2}>Things we've done...</h4><br></br>
                         <ListGroup>
                             {this.state.completedItems.map((item) => (
-                                <ListGroupItem>
+                                <ListGroupItem style={listGroupStyle}>
                                     <ListGroupItemText style={itemStyle1}><span><strong>What: </strong></span>{item.what}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle2}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle3}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
