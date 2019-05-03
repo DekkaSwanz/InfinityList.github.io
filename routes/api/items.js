@@ -49,4 +49,19 @@ router.put('/:id',(req,res) =>{
     
 })
 
+//@route PUT api/items/:cmt/:id
+//@desc comment on an item
+//@access Public
+router.put('/comment/:cmt/:id',(req,res) =>{
+    console.log("req.params ",req.params.id)
+    console.log('req.params cmt ',req.params.cmt)
+    Item.updateOne(
+        {"_id": req.params.id},
+        {$set: {"comment" : req.params.cmt}}
+    ).then(res => res.json({success:true}))
+    .catch(err => console.log(err))
+        
+    
+})
+
 module.exports = router;

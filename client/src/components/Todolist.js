@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, ListGroup, ListGroupItem, ListGroupItemText, Button, Form, FormGroup,Input} from 'reactstrap';
+import { Container, Row, Col, ListGroup, ListGroupItem, ListGroupItemText,ModalFooter, Button, Form, FormGroup,Input} from 'reactstrap';
 import axios from 'axios';
 
 const thingStyle = {
@@ -18,12 +18,20 @@ const smallStyle ={
 const itemStyle ={
     fontSize:"1.25rem",
     fontFamily:"'Indie Flower', cursive",
+    margin:'0'
 }
 const containerStyle = {
    
 }
 const formStyle = {
     padding:"2rem"
+}
+const commentBoxStyle = {
+    marginTop: "1rem"
+}
+
+const listGroupItemTextStyle ={
+    margin:'0'
 }
 class Todolist extends Component {
     state = {
@@ -102,6 +110,8 @@ class Todolist extends Component {
                                     <ListGroupItemText style={itemStyle} ><span><strong>What: </strong></span >{item.what}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle}><span><strong></strong></span>{item.comment}</ListGroupItemText><br></br>
+
                                     <Button
                                         className='remove-btn'
                                         color='danger'
@@ -126,11 +136,31 @@ class Todolist extends Component {
                                         onClick={() => {
                                            axios.put(`/api/items/${item._id}`).then(res =>{
                                                console.log(res)
-                                               debugger;
+                                               
                                            })
                                            window.location.reload(true)
                                         }}
-                                    >Done!</Button>
+                                    >Done!</Button><br></br>
+                                    <Form onSubmit={this.onSubmit}>
+                                        <FormGroup>
+                                            <Input style={commentBoxStyle} id={item._id} type="textarea" />
+                                            <ModalFooter>
+                                                <Button color="dark" onClick={() => {
+                                                    
+                                                   
+                                                    let comment = document.getElementById(`${item._id}`).value;
+                                                    console.log(comment)
+                                                    axios.put(`/api/items/comment/${comment}/${item._id}`).then(res => {
+                                                        console.log(res)
+                                                      
+                                                    })
+                                                    window.location.reload(true)
+                                                }}
+
+                                                >Submit Comment!</Button>
+                                            </ModalFooter>
+                                        </FormGroup>
+                                    </Form>
                                 </ListGroupItem>
                             ))}
                         </ListGroup>
@@ -142,6 +172,7 @@ class Todolist extends Component {
                                     <ListGroupItemText style={itemStyle}><span><strong>What: </strong></span>{item.what}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle}><span><strong></strong></span>{item.comment}</ListGroupItemText><br></br>
                                     <Button
                                         className='remove-btn'
                                         color='danger'
@@ -155,10 +186,29 @@ class Todolist extends Component {
                                             console.log("item id = ", item._id)
                                             console.log('delete clicked')
                                             window.location.reload(true)
-
                                         }}
                                     >Delete
-                                </Button>
+                                </Button><br></br>
+                                <Form onSubmit={this.onSubmit}>
+                                        <FormGroup>
+                                            <Input style ={commentBoxStyle} id={item._id} type="textarea" />
+                                            <ModalFooter>
+                                                <Button color="dark" onClick={() => {
+                                                    
+                                                   
+                                                    let comment = document.getElementById(`${item._id}`).value;
+                                                    console.log(comment)
+                                                    axios.put(`/api/items/comment/${comment}/${item._id}`).then(res => {
+                                                        console.log(res)
+                                                      
+                                                    })
+                                                    window.location.reload(true)
+                                                }}
+
+                                                >Submit Comment!</Button>
+                                            </ModalFooter>
+                                        </FormGroup>
+                                    </Form>
                             </ListGroupItem>
                             ))}
                         </ListGroup>

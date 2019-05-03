@@ -15,6 +15,10 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
+    comment:{
+        type:String,
+        required:false
+    },
     created:{
         type: Date,
         default: Date.now
