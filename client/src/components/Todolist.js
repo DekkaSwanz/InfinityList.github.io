@@ -7,18 +7,60 @@ const thingStyle = {
     fontFamily:"'Permanent Marker', cursive",
     borderBottom:"solid black .2rem"
 }
+const thingStyle1 = {
+    fontSize: '2.5rem',
+    fontFamily:"'Permanent Marker', cursive",
+    borderBottom:"solid black .2rem",
+    color:"green"
+}
+const thingStyle2 = {
+    fontSize: '2.5rem',
+    fontFamily:"'Permanent Marker', cursive",
+    borderBottom:"solid black .2rem",
+    color:"rgb(234, 234, 0)"
+}
 const colStyle = {
     flex: 'none',
     maxWidth: 'none'
 }
-const smallStyle ={
+const smallStyle1 ={
     fontSize:"1.5rem",
-    fontFamily:"'Indie Flower', cursive"
+    fontFamily:"'Indie Flower', cursive",
+    color:"green"
+}
+const smallStyle2 ={
+    fontSize:"1.5rem",
+    fontFamily:"'Indie Flower', cursive",
+    color:"rgb(234, 234, 0)"
+}
+const smallStyle3 ={
+    fontSize:"1.5rem",
+    fontFamily:"'Indie Flower', cursive",
+    color:"red"
 }
 const itemStyle ={
     fontSize:"1.25rem",
     fontFamily:"'Indie Flower', cursive",
-    margin:'0'
+    margin:'0',
+    wordBreak:'break-word'
+}
+const itemStyle1 ={
+    fontSize:"1.25rem",
+    fontFamily:"'Indie Flower', cursive",
+    margin:'0',
+    wordBreak:'break-word'
+}
+const itemStyle2 ={
+    fontSize:"1.25rem",
+    fontFamily:"'Indie Flower', cursive",
+    margin:'0',
+    wordBreak:'break-word'
+}
+const itemStyle3 ={
+    fontSize:"1.25rem",
+    fontFamily:"'Indie Flower', cursive",
+    margin:'0',
+    wordBreak:'break-word'
 }
 const containerStyle = {
    
@@ -29,7 +71,11 @@ const formStyle = {
 const commentBoxStyle = {
     marginTop: "1rem"
 }
+const buttonStyle ={
+    color:"black",
+    fontFamily:"'Indie Flower', cursive"
 
+}
 const listGroupItemTextStyle ={
     margin:'0'
 }
@@ -83,33 +129,33 @@ class Todolist extends Component {
                 <Form style={formStyle} onSubmit={this.handleSubmit}>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
-                            <Input style={smallStyle} type="text" name="what" id="whatInput" placeholder="What should we do?" />
+                            <Input style={smallStyle1} type="text" name="what" id="whatInput" placeholder="What should we do?" />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
-                            <Input style={smallStyle} type="text" name="where" id="whereInput" placeholder="Where should we do it?" />
+                            <Input style={smallStyle2} type="text" name="where" id="whereInput" placeholder="Where should we do it?" />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Col style={colStyle} sm={10}>
-                            <Input style={smallStyle} type="text" name="when" id="whenInput" placeholder="When should we do it?" />
+                            <Input style={smallStyle3} type="text" name="when" id="whenInput" placeholder="When should we do it?" />
                         </Col>
                     </FormGroup>
                     <FormGroup className='text-center' check row>
                         <Col style={colStyle} sm={{ size: 10 }}>
-                            <Button type="submit">Add to list!</Button>
+                            <Button style={buttonStyle} type="submit">Add to list!</Button>
                         </Col>
                     </FormGroup>
                 </Form>
                 <Row className='text-center'>
-                    <Col xs="6"><h4 style={thingStyle}>Things to Do...</h4><br></br>
+                    <Col xs="6"><h4 style={thingStyle1}>Things to Do...</h4><br></br>
                         <ListGroup>
                             {items.map((item, id) => (
                                 <ListGroupItem  >
-                                    <ListGroupItemText style={itemStyle} ><span><strong>What: </strong></span >{item.what}</ListGroupItemText><br></br>
-                                    <ListGroupItemText style={itemStyle}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
-                                    <ListGroupItemText style={itemStyle}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle1} ><span><strong>What: </strong></span >{item.what}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle2}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle3}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle}><span><strong></strong></span>{item.comment}</ListGroupItemText><br></br>
 
                                     <Button
@@ -145,7 +191,7 @@ class Todolist extends Component {
                                         <FormGroup>
                                             <Input style={commentBoxStyle} id={item._id} type="textarea" />
                                             <ModalFooter>
-                                                <Button color="dark" onClick={() => {
+                                                <Button style={buttonStyle} onClick={() => {
                                                     
                                                    
                                                     let comment = document.getElementById(`${item._id}`).value;
@@ -165,13 +211,13 @@ class Todolist extends Component {
                             ))}
                         </ListGroup>
                     </Col>
-                    <Col xs="6"><h4 className='flex-sm-nowrap' style={thingStyle}>Things we've done...</h4><br></br>
+                    <Col xs="6"><h4 className='flex-sm-nowrap' style={thingStyle2}>Things we've done...</h4><br></br>
                         <ListGroup>
                             {this.state.completedItems.map((item) => (
                                 <ListGroupItem>
-                                    <ListGroupItemText style={itemStyle}><span><strong>What: </strong></span>{item.what}</ListGroupItemText><br></br>
-                                    <ListGroupItemText style={itemStyle}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
-                                    <ListGroupItemText style={itemStyle}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle1}><span><strong>What: </strong></span>{item.what}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle2}><span><strong>Where: </strong></span>{item.where}</ListGroupItemText><br></br>
+                                    <ListGroupItemText style={itemStyle3}><span><strong>When: </strong></span>{item.when}</ListGroupItemText><br></br>
                                     <ListGroupItemText style={itemStyle}><span><strong></strong></span>{item.comment}</ListGroupItemText><br></br>
                                     <Button
                                         className='remove-btn'
@@ -193,7 +239,7 @@ class Todolist extends Component {
                                         <FormGroup>
                                             <Input style ={commentBoxStyle} id={item._id} type="textarea" />
                                             <ModalFooter>
-                                                <Button color="dark" onClick={() => {
+                                                <Button style={buttonStyle}  onClick={() => {
                                                     
                                                    
                                                     let comment = document.getElementById(`${item._id}`).value;

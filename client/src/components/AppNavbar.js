@@ -4,7 +4,8 @@ const headStyle = {
     fontFamily:"'Permanent Marker', cursive",
     border: "solid black",
     borderRadius: "25px",
-    marginBottom:"0rem"
+    marginBottom:"0rem",
+    color:"red"
 }
 
 const Header = (props) => {
