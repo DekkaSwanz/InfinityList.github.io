@@ -176,6 +176,7 @@ class Todolist extends Component {
                 </Form>
                 <Row className='text-center'>
                     <Col xs="6"><h4 style={thingStyle1}>Things to Do...</h4><br></br>
+                        <div id='itemList'>
                         <ListGroup>
                             {items.map((item, id) => (
                                 <ListGroupItem style={listGroupStyle} >
@@ -236,8 +237,10 @@ class Todolist extends Component {
                                 </ListGroupItem>
                             ))}
                         </ListGroup>
+                        </div>
                     </Col>
                     <Col xs="6"><h4 className='flex-sm-nowrap' style={thingStyle2}>Things we've done...</h4><br></br>
+                        <div id="itemList">
                         <ListGroup>
                             {this.state.completedItems.map((item) => (
                                 <ListGroupItem style={listGroupStyle}>
@@ -284,6 +287,7 @@ class Todolist extends Component {
                             </ListGroupItem>
                             ))}
                         </ListGroup>
+                        </div>
                     </Col>
                 </Row>
             </Container>
